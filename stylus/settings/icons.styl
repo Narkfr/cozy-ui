@@ -1,0 +1,139 @@
+@require '../generic/animations'
+
+/*------------------------------------*\
+  Icons
+  ================
+
+  This file contains icons coded in data:uri
+\*------------------------------------*/
+
+/*
+    Icons
+
+    Icons system management.
+
+    Use them by extending the placebolders like this `@extend $icon-16`
+
+    Styleguide Settings.icons
+*/
+$icon
+    content              ''
+    display              inline-block
+    vertical-align       middle
+    margin-left          .5em
+    background-position  center
+    background-repeat    no-repeat
+    background-size      cover
+
+
+/*------------------------------------*\
+  Icon's sizes
+\*------------------------------------*/
+
+/*
+    Icon sizes
+
+    There are several preset squared sizes available. Sizes are set using rem
+    unit and their equivalents in px matches if the default size of your page
+    is 16px (which is the default size in Cozy-UI)
+
+    $icon-8  - Equivalent to 8px
+    $icon-12 - Equivalent to 12px
+    $icon-16 - Equivalent to 16px
+    $icon-24 - Equivalent to 24px
+    $icon-36 - Equivalent to 36px
+    $icon-80 - Equivalent to 80px
+
+    Weight: 1
+
+    Styleguide Settings.icons.sizes
+*/
+$icon-8
+    width   .5rem // 8px
+    height  .5rem
+
+$icon-12
+    width   .75rem // 12px
+    height  .75rem
+
+$icon-16
+    width   1rem // 16px
+    height  1rem
+
+$icon-24
+    width   1.5rem // 24px
+    height  1.5rem
+
+$icon-36
+    width   2.25rem // 36px
+    height  2.25rem
+
+$icon-80
+    width   5rem // 80px
+    height  5rem
+
+
+/*------------------------------------*\
+  Icon's options
+\*------------------------------------*/
+
+/*
+    Icon options
+
+    Some available options for icon elements.
+
+    $icon-centered  - Element is vertically & horizontally centered
+    $spin-anim      - Element spins endlessly on itself
+
+    Weight: 2
+
+    Styleguide Settings.icons.options
+*/
+$icon-centered
+    position   absolute
+    top        50%
+    left       50%
+    transform  translateX(-50%) translateY(-50%)
+
+$spin-anim
+    // arguments' order is important: the animation name must stay first
+    // so that scoping works
+    animation  spin 1s linear infinite
+
+
+/*------------------------------------*\
+  Spinners
+\*------------------------------------*/
+/*
+    Spinners
+
+    Collection of available spinners with different colors
+
+    $icon-spinner-grey  - grey colored spinner
+    $icon-spinner-white - white colored spinner
+    $icon-spinner-blue  - blue colored spinner
+    $icon-spinner-red   - red colored spinner
+
+    Weight: 3
+
+    Styleguide Settings.icons.spinners
+*/
+$icon-spinner-grey
+    @extend           $icon
+    @extend           $spin-anim
+    background-image  embedurl('../../assets/icons/ui/spinner-grey.svg')
+
+$icon-spinner-white
+    @extend           $icon
+    @extend           $spin-anim
+    background-image  embedurl('../../assets/icons/ui/spinner-white.svg')
+
+$icon-spinner-blue
+    @extend           $icon
+    @extend           $spin-anim
+    background-image  embedurl('../../assets/icons/ui/spinner-blue.svg')
+
+$icon-spinner-red
+    @extend           $icon
+    @extend           $spin-anim
+    background-image  embedurl('../../assets/icons/ui/spinner-red.svg')

@@ -23,6 +23,240 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Security
 - none yet
 
+## [4.0.3] - 2017-10-25
+### Fixed
+-  🚑 Alert's padding are now back in the game, sorry, some commas were well hidden.
+
+## [4.0.2] - 2017-10-19
+### Fixed
+-  🚒 Reinstated .c-link--upload & .c-link--delete that were actually needed, sorry 😅
+
+### Added
+-  🚑 Explicitely import palette.styl & mixins.styl in button.styl so you can use button on its own
+
+
+## [4.0.1] - 2017-10-17
+### Changed
+- 📝 Changed some `em` to `rem`
+- 🐎 Use `@require` instead of `@import`
+- 🔥 React components don't use global classes anymore
+- 📝 Renamed `.u-hidden`class to `.u-visuallyhidden`
+
+### Fixed
+- 🚑 Fixed active links in main nav
+- 🚑 Items on mobile nav weren't using the available space smartly
+- 🚑 Fixed some buttons to make sure it goes well in any situation
+- 🍎 Fixed the annoying double tap on nav links on iPad
+
+### Added
+- 📚 Added Icon, Button & Spinner react component to the React Styleguide
+
+
+## [4.0.0] - 2017-09-26
+### Changed
+- Clean up comments & typos ✨
+
+### Fixed
+- Fix modal position on desktop 🔧
+- Fixed Nav items position on mobile 👷
+
+### Added
+- Added buttons global classes (without CSS Modules) 🎉
+- Ensure retro-compatibility for previous global classes with CSS Modules ⚙
+- Added Nav component 🗞
+
+### Removed
+- Removed mixins `padded` and `spaced` ♻
+- Removed Lato font from UI & moved to the stack (you'll need to add a `<link>` tag to your app `<link rel="stylesheet" type="text/css" href="//{{.Domain}}/assets/fonts/fonts.css">` 🔀
+
+
+## [4.0.0-beta] - 2017-09-20
+### Fixed
+- Toggle component has cursor pointer now 👆
+- Font Lota for IE11 by adding woff format 🐒
+- btn--extra buttons' hover state 🐦
+
+### Changed
+- 🔥 Files architecture completely changed to [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) methodology
+
+### Added
+- CSS Styleguide with KSS 🎉
+- Breakpoints mixins + HOC 👪
+- Added preserveColor property to Icon component ✨
+- Spacers utility classes for quick & easy padding/margin 😍
+
+### Removed
+- Deprecated greys ☠
+
+
+## [3.0.0-beta46] - 2017-09-15
+### Changed
+- Mobile nav has bigger icons
+- Modal on Mobile are now vertically centered
+
+### Added
+- Woff font for IE11 support
+- `.coz-btn--download` class
+- use styleguidist to generate react styleguide
+
+### Fixed
+- handle new svg-sprite-loader format
+- Spinner in buttons was broken
+
+
+## [3.0.0-beta45] - 2017-09-08
+### Changed
+- Default button `.coz-btn` now has white text color and blue background on `:hover`
+
+
+## [3.0.0-beta44] - 2017-09-01
+### Added
+- Ability to import components directly from `cozy-ui/react`
+
+
+## [3.0.0-beta43] - 2017-08-30
+### Fixed
+- layout broken on scroll (iOS)
+
+
+## [3.0.0-beta42] - 2017-08-24
+### Removed
+- Modal doesn't have `overflow: hidden` property by default anymore
+
+### Added
+- Modal component's new boolean option `overflowHidden`
+
+
+## [3.0.0-beta41] - 2017-08-21
+### Fixed
+- Made normalize.css import absolute
+
+
+## [3.0.0-beta40] - 2017-08-07
+### Added
+- Styles for textarea element (same styles than other inputs)
+- `$button--send` class for button with paperplan icon
+
+
+## [3.0.0-beta39] - 2017-06-27
+### Changed
+- Tabs units from `px` to `rem`
+
+### Fixed
+- Alert position on mobile
+- Modal responsiveness
+
+### Removed
+- Content component in Modal Component
+
+
+## [3.0.0-beta38] - 2017-06-23
+### Fixed
+- wrong file name when importing i18n in Spinner component prevented apps from buidling
+
+
+## [3.0.0-beta37] - 2017-06-22
+### Changed
+- Position of the modal is now relative to the viewport's height
+- Modal has now a min-width so it's not too narrow with tiny content
+- Refactored form controls such as submit buttons
+
+### Fixed
+- Closing cross size in modals
+- Select element has now its arrow when on focus
+
+### Added
+- `<Spinner />` component with several options like color, size, Box-model…
+- `<Icon />` component to use cozy-ui icons easily à la [FontAwesome](http://fontawesome.io/). `Icon`s can be styled with CSS.
+
+```jsx
+import Icon from 'cozy-ui/react/Icon'
+<Icon icon='warn' width='2rem' height='2rem' color='red' />
+```
+
+
+## [3.0.0-beta36] - 2017-06-13
+### Changed
+- Stick the modal on top juuuuust a lil' bit hover the cozy-bar
+- Aligned modal title with the closing cross button
+- Refactored how the modal handle the flow of its content, for the padding mostly
+- Disabled buttons have now a `not-allowed` cursor when hovered
+- Disabled buttons in selection bar have now `opacity: .5` even on desktop
+- Update cross icon
+- Greys vars names are now consistent with the other color vars
+
+### Fixed
+- Selection bar classes were not consistent
+- Height of items in selection bar on mobile were way bigger than it should
+
+### Removed
+- removed inputs' grey `background-color`
+
+### Deprecated
+- Formers greys from previous identity are deprecated but with a fallback to the nearest grey of the new identity
+
+
+## [3.0.0-beta35] - 2017-06-09
+### Fixed
+- Update album icon to fix selectionbar.styl
+
+
+## [3.0.0-beta34] - 2017-06-09
+### Fixed
+- Add .jsx extension on i18n import
+
+
+## [3.0.0-beta33] - 2017-06-09
+### Fixed
+- Add .jsx extension on i18n component
+
+### Added
+- Add SelectionBar component
+
+
+## [3.0.0-beta32] - 2017-06-08
+### Fixed
+- The previously added usage-tracking helper had the wrong file format for usage in our project configurations
+
+
+## [3.0.0-beta31] - 2017-06-08
+### Added
+- Added usage tracking helpers
+
+
+## [3.0.0-beta30] - 2017-06-02
+### Added
+- Add special button App download for both desktop and mobile
+
+
+## [3.0.0-beta29] - 2017-05-30
+### Changed
+- Modal now has no padding by default. Padding are added in children or using `ModalContent` or `ModalSection` components.
+
+### Fixed
+- Remove hover style on `[disabled]` and `[aria-disabled=true]` attribute for buttons: `$button--danger`, `$button--danger-outline` and `$button--highlight`
+
+### Added
+- Add a new icon variable: `$icon-spinner-red`
+- Add white spinner on buttons `$button--danger` and `$button--highlight` with `[aria-busy=true]` attribute
+- Add red spinner on `$button--danger-outline` with `[aria-busy=true]` attribute
+
+### Deprecated
+- The use of `Content` component in modals is deprecated and replaced by `ModalContent`.
+
+
+## [3.0.0-beta28] - 2017-05-29
+### Fixed
+- Remove deprecated message when we used Toggle
+- Modal sticks to viewport and does not overflow anymore
+
+
+## [3.0.0-beta27] - 2017-05-23
+### Added
+- Special button for client downloading
+
+### Removed
+- Modal title is no more required
 
 ## [3.0.0-beta26] - 2017-05-19
 ### Changed
@@ -96,6 +330,7 @@ Nothing else has changed.
 ### Added
 - New utility classes `.coz-error` and variant `.coz-error--warning` to display error text, without or with a warning sign
 - Added table default style
+
 
 ## [3.0.0-beta17] - 2017-03-17
 ### Fixed
@@ -259,7 +494,32 @@ on desktop or mobile view
 - Everything we did before adopting CHANGELOG…
 
 
-[Unreleased]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta26...HEAD
+[Unreleased]: https://github.com/cozy/cozy-ui/compare/v4.0.3...HEAD
+[4.0.3]: https://github.com/cozy/cozy-ui/compare/v4.0.2...v4.0.3
+[4.0.2]: https://github.com/cozy/cozy-ui/compare/v4.0.1...v4.0.2
+[4.0.1]: https://github.com/cozy/cozy-ui/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/cozy/cozy-ui/compare/v4.0.0-beta...v4.0.0
+[4.0.0-beta]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta46...v4.0.0-beta
+[3.0.0-beta46]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta45...v3.0.0-beta46
+[3.0.0-beta45]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta44...v3.0.0-beta45
+[3.0.0-beta44]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta43...v3.0.0-beta44
+[3.0.0-beta43]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta42...v3.0.0-beta43
+[3.0.0-beta42]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta41...v3.0.0-beta42
+[3.0.0-beta41]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta40...v3.0.0-beta41
+[3.0.0-beta40]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta39...v3.0.0-beta40
+[3.0.0-beta39]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta38...v3.0.0-beta39
+[3.0.0-beta38]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta37...v3.0.0-beta38
+[3.0.0-beta37]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta36...v3.0.0-beta37
+[3.0.0-beta36]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta35...v3.0.0-beta36
+[3.0.0-beta35]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta34...v3.0.0-beta35
+[3.0.0-beta34]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta33...v3.0.0-beta34
+[3.0.0-beta33]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta32...v3.0.0-beta33
+[3.0.0-beta32]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta31...v3.0.0-beta32
+[3.0.0-beta31]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta30...v3.0.0-beta31
+[3.0.0-beta30]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta29...v3.0.0-beta30
+[3.0.0-beta29]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta28...v3.0.0-beta29
+[3.0.0-beta28]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta27...v3.0.0-beta28
+[3.0.0-beta27]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta26...v3.0.0-beta27
 [3.0.0-beta26]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta25...v3.0.0-beta26
 [3.0.0-beta25]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta24...v3.0.0-beta25
 [3.0.0-beta24]: https://github.com/cozy/cozy-ui/compare/v3.0.0-beta23...v3.0.0-beta24

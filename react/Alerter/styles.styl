@@ -1,7 +1,19 @@
-@import '../../stylus/ui-base/fonts'
-@import '../../stylus/ui-base/palette'
-@import '../../stylus/ui-base/spacers'
-@import '../../stylus/ui-components/alerts'
+@require '../../stylus/tools/mixins'
+@require '../../stylus/settings/palette'
+@require '../../stylus/components/alerts'
 
 .coz-alerter
-  @extends $alerts
+    @extends $alerts
+
+.coz-btn
+    @extends .c-btn
+
+.coz-btn--alert-error
+    @extends .c-btn-alert--error
+
+.coz-btn--alert-info
+    @extends .c-btn-alert--info
+
+.coz-btn--alert-success
+    @extends .c-btn-alert--success
+

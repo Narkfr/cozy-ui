@@ -1,0 +1,23 @@
+@require '../settings/palette'
+
+$tabs-base
+    .coz-tab-list
+        border-bottom  1px solid silver
+
+    .coz-tab
+        display        inline-block
+        padding        .625rem 1rem
+        text-transform uppercase
+        font-size      .8em
+        cursor         pointer
+        color          cool-grey
+
+        &:hover
+            text-decoration none
+
+    .coz-tab--active
+        border-bottom 2px solid dodger-blue
+        color         dodger-blue
+
+    .coz-tab-panel
+        padding-top 1.25rem

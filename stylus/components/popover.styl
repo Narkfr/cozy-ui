@@ -1,0 +1,40 @@
+@require '../settings/z-index'
+
+/*------------------------------------*\
+  Pop over
+  ======
+
+  This file contains all needs for popover
+\*------------------------------------*/
+
+$popover
+    z-index           $popover-index
+    border            1px solid silver
+    border-radius     4px
+    box-shadow        0 1px 3px 0 rgba(50, 54, 63, .19), 0 6px 18px 0 rgba(50, 54, 63, .19)
+    background-color  white
+    // @stylint off
+    // because Stylint doesn't support custom elements
+    b-item:hover
+    b-item:focus
+        background-color pale-grey
+        outline          none
+    // @stylint on
+
+    hr
+        margin      em(5px) 0
+        border      0
+        border-top  1px solid silver
+
+    a
+    button
+    [role=button]
+        display          block
+        padding          .5rem 2rem .5rem 2.5rem
+        color            charcoal-grey
+        text-decoration  none
+        white-space      nowrap
+        cursor           pointer
+
+        &:hover
+            text-decoration none

@@ -1,0 +1,443 @@
+@require '../settings/palette'
+@require '../settings/icons'
+@require '../tools/mixins'
+
+/*------------------------------------*\
+  Buttons of any kind
+\*------------------------------------*/
+
+/**
+ * 1. `font-size` calls the font-size function in ui-components/fonts.styl
+      and replaces px value by an em value. Don't be scared by this. :)
+ */
+/*
+ Buttons
+
+ Buttons in different flavour
+
+ Markup:
+ <div class="u-p-1" style=" background-color: darkgrey">
+     <button class="c-btn {{modifier_class}}">Click me, I'm a button!</button>
+     <a hre="#" class="c-btn {{modifier_class}}">Click me, I'm a link!</a>
+ </div>
+
+ .c-btn--regular - Regular
+ .c-btn--secondary - Regular alternative
+ .c-btn--danger - Danger
+ .c-btn--danger-outline - Danger outlined
+ .c-btn--highlight - Highlighted button to catch the eye
+
+ Weight: -1
+
+ Styleguide Components.buttons
+*/
+$button // deprecated
+.c-btn
+    box-sizing       border-box
+    display          inline-block
+    margin           0 .25em
+    border           1px solid white
+    border-radius    2px
+    min-height       em(40px, 14px)
+    padding          em(13px, 14px) em(15px, 14px) em(11px, 14px)
+    background       transparent
+    vertical-align   top
+    text-align       center
+    color            white
+    font-size        14px /* [1] */
+    line-height      1
+    text-transform   uppercase
+    text-decoration  none
+    cursor           pointer
+
+    &[disabled]
+    &[aria-disabled=true]
+        opacity  .5
+        cursor   not-allowed
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  science-blue
+
+    &[aria-busy=true]
+        &::after
+            @extend    $icon-16
+            @extend    $icon-spinner-white
+            position   relative
+            top        em(-1px)
+
+
+$button--regular // deprecated
+.c-btn--regular
+    border-color      dodger-blue
+    background-color  dodger-blue
+    color             white
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        border-color      science-blue
+        background-color  science-blue
+
+    &[aria-busy=true]
+        &::after
+            @extend  $icon-spinner-white
+
+$button--secondary // deprecated
+.c-btn--secondary
+    background-color  white
+    color             black
+    border            1px solid silver
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  silver
+
+    &[aria-busy=true]
+        &::after
+            @extend  $icon-spinner-blue
+
+$button--danger // deprecated
+.c-btn--danger
+    border-color      pomegranate
+    background-color  pomegranate
+    color             white
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        border-color      monza
+        background-color  monza
+
+    &[aria-busy=true]
+        &::after
+            @extend  $icon-spinner-white
+
+$button--danger-outline // deprecated
+.c-btn--danger-outline
+    background-color  white
+    color             pomegranate
+    border            1px solid your-pink
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  your-pink
+
+    &[aria-busy=true]
+        &::after
+            @extend  $icon-spinner-red
+
+$button--highlight // deprecated
+.c-btn--highlight
+    border-color      emerald
+    background-color  emerald
+    color             white
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        border-color      malachite
+        background-color  malachite
+
+    &[aria-busy=true]
+        &::after
+            @extend  $icon-spinner-white
+
+/*
+ Buttons with icons
+
+ Those buttons can inherit any flavour of buttons described above.
+
+ For this example, we use `.c-btn--regular` but choose the one you want.
+
+ Markup:
+ <div class="u-p-1" style=" background-color: darkgrey">
+     <button class="c-btn c-btn--regular {{modifier_class}}">Click me, I'm a button!</button>
+     <a hre="#" class="c-btn c-btn--regular {{modifier_class}}">Click me, I'm a link!</a>
+ </div>
+
+ .c-btn--share - Share
+ .c-btn--send - Send
+ .c-btn--download - Download
+ .c-btn--upload - Upload
+ .c-btn--delete - Delete
+
+ Styleguide Components.buttons.icons
+*/
+$button--share // deprecated
+.c-btn--share
+    padding-left         em(44px, 16px)
+    background-image     embedurl('../assets/icons/ui/icon-share-grey08.svg')
+    background-position  em(17px, 16px) center
+    background-repeat    no-repeat
+
+$button--send // deprecated
+.c-btn--send
+    padding-left         em(44px, 16px)
+    background-image     embedurl('../assets/icons/ui/icon-paperplane.svg')
+    background-position  em(17px, 16px) center
+    background-repeat    no-repeat
+
+$button--download // deprecated
+.c-btn--download
+    padding-left         em(44px, 16px)
+    background-image     embedurl('../assets/icons/ui/icon-download.svg')
+    background-position  em(17px, 16px) center
+    background-repeat    no-repeat
+
+$button--upload // deprecated
+.c-btn--upload
+    padding-left         em(44px, 16px)
+    background-image     embedurl('../assets/icons/ui/icon-upload.svg')
+    background-position  em(17px, 16px) center
+    background-repeat    no-repeat
+
+    &[disabled]
+    &[aria-disabled=true]
+        input
+            cursor not-allowed
+
+    input
+        cursor pointer
+
+$button--delete // deprecated
+.c-btn--delete
+    padding-left         em(44px, 16px)
+    background-image     embedurl('../assets/icons/ui/icon-delete.svg')
+    background-position  em(17px, 16px) center
+    background-repeat    no-repeat
+
+    input
+        cursor pointer
+
+/*
+ Buttons link shaped with icons
+
+ Buttons that look like links, with icons
+
+ Markup:
+ <div class="u-p-1" style=" background-color: darkgrey">
+     <button class="{{modifier_class}}">Click me, I'm a button!</button>
+     <a hre="#" class="{{modifier_class}}">Click me, I'm a link!</a>
+ </div>
+
+ .c-link--upload - Upload
+ .c-link--delete - Delete
+
+ Styleguide Components.buttons.link
+*/
+$link--upload // deprecated
+.c-link--upload
+    background-image     embedurl('../assets/icons/ui/icon-upload-grey08.svg')
+    background-position  em(16px) center
+    background-repeat    no-repeat
+
+$link--delete // deprecated
+.c-link--delete
+    background-image     embedurl('../assets/icons/ui/icon-delete-grey08.svg')
+    background-position  em(16px) center
+    background-repeat    no-repeat
+
+/*
+
+/*
+ Button More
+
+ Button to display more information
+
+ Markup:
+ <div class="u-p-1" style=" background-color: darkgrey">
+    <button class="c-btn {{modifier_class}}"><span class="u-hidden">Click me, I'm a button!</span></button>
+    <a hre="#" class="c-btn {{modifier_class}}"><span class="u-hidden">Click me, I'm a link!</span></a>
+ </div>
+
+ .c-btn--more - Classic more button
+ .c-btn-extra - Extra button, much like More button but lighter, without border
+ .c-btn-extra--white - Extra button with white icon
+
+ Styleguide Components.buttons.more
+*/
+$button--more // deprecated
+.c-btn--more
+    width                em(46px)
+    background-color     transparent
+    background-image     embedurl('../assets/icons/ui/icon-dots.svg')
+    background-position  center center
+    background-repeat    no-repeat
+
+$button--extra // deprecated
+.c-btn-extra
+    width       em(46px)
+    border      0
+    background  embedurl('../assets/icons/ui/icon-dots.svg') center center no-repeat
+    opacity     .5
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  transparent
+
+$button--extra-white // deprecated
+.c-btn-extra--white
+    @extend .c-btn-extra
+    background-image  embedurl('../assets/icons/ui/icon-dots-white.svg')
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  transparent
+
+$button--close // deprecated
+.c-btn--close
+    border               0
+    width                em(46px)
+    background-image     embedurl('../assets/icons/ui/icon-cross.svg')
+    background-position  center center
+    background-repeat    no-repeat
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color  transparent
+
+
+/*------------------------------------*\
+  Alert's specific buttons
+\*------------------------------------*/
+/*
+ Alert's buttons
+
+ Buttons that look like links, with icons
+
+ Markup:
+ <div class="u-p-1">
+     <button class="c-btn--alert {{modifier_class}} u-m-1">Click me, I'm a button!</button>
+     <a hre="#" class="c-btn--alert {{modifier_class}} u-m-1">Click me, I'm a link!</a>
+ </div>
+
+ .c-btn-alert--error - Error button
+ .c-btn-alert--info - Information button
+ .c-btn-alert--success - Success button
+
+ Weight: 10
+
+ Styleguide Components.buttons.alert
+*/
+$button-alert // deprecated
+.c-btn-alert
+    margin       .5rem 0 0
+    border       0
+    height       auto
+    padding      .5rem 1rem
+    background-color transparent
+    font-weight  bold
+    font-size 1em
+
+$button-alert--error // deprecated
+.c-btn-alert--error
+    @extend .c-btn-alert
+    color   pomegranate
+
+    &:active
+    &:hover
+    &:focus
+        color  darken(pomegranate, 25%)
+
+$button-alert--info // deprecated
+.c-btn-alert--info
+    @extend           .c-btn-alert
+    background-color  cool-grey
+    color             white
+
+    &:active
+    &:hover
+    &:focus
+        color  darken(white, 10%)
+
+$button-alert--success // deprecated
+.c-btn-alert--success
+    @extend .c-btn-alert
+    color   emerald
+
+    &:active
+    &:hover
+    &:focus
+        color darken(emerald, 25%)
+
+/*------------------------------------*\
+  Special buttons
+\*------------------------------------*/
+/*
+ Special buttons
+
+ Special link that look like buttons (<a> only)
+
+ Markup:
+ <div class="u-p-1" style="background-color: darkgrey; width: 50%;">
+     <a hre="#" class="{{modifier_class}} u-mb-1">Click me, I'm a link!</a>
+ </div>
+
+ .c-btn-client - Button to download Cozy client app
+ .c-btn-client-mobile - Button to download Cozy client app on mobile
+
+ Weight: 20
+
+ Styleguide Components.buttons.special
+*/
+$button-client // deprecated
+.c-btn-client
+    @extend .c-btn
+    @extend .c-btn--secondary
+    display           flex
+    justify-content   center
+    align-items       center
+    height            auto
+    margin            0
+    padding-left      em(16px, 13px)
+    padding-right     em(16px, 13px)
+    background-color  transparent
+    text-align        left
+    font-size         13px
+    font-weight       bold
+    line-height       1.3
+    color             slate-grey
+
+    &:before
+        content           ''
+        flex              0 0 em(32px, 13px)
+        height            em(32px, 13px)
+        margin-right      em(12px, 13px)
+        background        embedurl('../assets/icons/ui/icon-device-laptop.svg') 0 0 / contain no-repeat
+
+    span
+        flex  0 1 auto
+
+$button-client-mobile // deprecated
+.c-btn-client-mobile
+    @extend .c-btn-client
+    display          flex
+    justify-content  flex-start
+    background-color dodger-blue
+    border           0
+    border-radius    0
+    padding          .5em 3em .5em 1em
+    font-size        16px
+    font-weight      normal
+    color            white
+    text-decoration  none
+    text-transform   none
+
+    &:active
+    &:not([disabled]):not([aria-disabled=true]):hover
+    &:focus
+        background-color dodger-blue
+
+    &:before
+        flex                0 0 em(44px)
+        height              em(44px)
+        border-radius       .5em
+        border              .3em solid white
+        background          white embedurl('../assets/icons/ui/icon-cozy.svg') 0 0 / contain no-repeat

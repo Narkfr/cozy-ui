@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import styles from './styles.styl'
+
+const ModalContent = ({children, className}) =>
+  (<div className={classNames(styles['coz-modal-content'], className)}>
+    {children}
+  </div>)
+
+const ModalSection = ({children, className}) =>
+  (<div className={classNames(styles['coz-modal-content'], styles['coz-modal-section'], className)}>
+    {children}
+  </div>)
 
 const ModalTitle = ({ title }) =>
   (
-    <h2 className={styles['coz-modal-title']}>{title}</h2>
+    <h2 className={classNames(styles['coz-modal-content'], styles['coz-modal-title'])}>{title}</h2>
   )
 
 const deprecateSecondaryForDismiss = (dismissAction, secondaryAction) => {
@@ -54,12 +64,12 @@ const ModalButtons = ({ secondaryText, secondaryAction, secondaryType, primaryTe
     (
       <div className={classNames(styles['coz-modal-content'], styles['coz-modal-buttons'])}>
         { displaySecondary &&
-          <button className={classNames('coz-btn', 'coz-btn--' + secondaryType)} onClick={secondaryAction}>
+          <button className={classNames(styles['coz-btn'], styles['coz-btn--' + secondaryType])} onClick={secondaryAction}>
             {secondaryText}
           </button>
         }
         { displayPrimary &&
-          <button className={classNames('coz-btn', 'coz-btn--' + primaryType)} onClick={primaryAction}>
+          <button className={classNames(styles['coz-btn'], styles['coz-btn--' + primaryType])} onClick={primaryAction}>
             {primaryText}
           </button>
         }
@@ -122,18 +132,19 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.node,
-  secondaryType: React.PropTypes.string,
-  secondaryText: React.PropTypes.string,
-  secondaryAction: React.PropTypes.func,
-  dismissAction: React.PropTypes.func,
-  dismissText: React.PropTypes.string,
-  primaryType: React.PropTypes.string,
-  primaryText: React.PropTypes.string,
-  primaryAction: React.PropTypes.func,
-  withCross: React.PropTypes.bool,
-  hasCloseButton: React.PropTypes.bool
+  title: PropTypes.string,
+  description: PropTypes.node,
+  secondaryType: PropTypes.string,
+  secondaryText: PropTypes.string,
+  secondaryAction: PropTypes.func,
+  dismissAction: PropTypes.func,
+  dismissText: PropTypes.string,
+  primaryType: PropTypes.string,
+  primaryText: PropTypes.string,
+  primaryAction: PropTypes.func,
+  withCross: PropTypes.bool,
+  overflowHidden: PropTypes.bool,
+  hasCloseButton: PropTypes.bool
 }
 
 Modal.defaultProps = {
@@ -143,4 +154,9 @@ Modal.defaultProps = {
   hasCloseButton: true
 }
 
+export {
+  ModalContent,
+  ModalSection,
+  ModalButtons
+}
 export default Modal

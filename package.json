@@ -1,16 +1,13 @@
 {
   "name": "cozy-ui",
-  "version": "3.0.0-beta26",
+  "version": "4.0.3",
   "description": "Cozy apps Ui SDK",
   "repository": {
     "type": "git",
     "url": "https://github.com/cozy/cozy-ui.git"
   },
   "author": "Cozy Cloud <contact@cozycloud.cc> (http://cozycloud.cc)",
-  "contributors": [
-    "m4dz <code@m4dz.net>",
-    "GoOz"
-  ],
+  "contributors": ["m4dz <code@m4dz.net>", "GoOz"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cozy/cozy-ui/issues"
@@ -18,32 +15,58 @@
   "homepage": "https://github.com/cozy/cozy-ui",
   "scripts": {
     "lint": "npm-run-all 'lint:*'",
-    "lint:js": "standard 'stylus/**/*.js'",
-    "lint:stylus": "stylint stylus --config .stylintrc"
+    "lint:js": "standard '**/*.js'",
+    "lint:stylus": "stylint stylus --config .stylintrc",
+    "watch:doc:react": "styleguidist server --config docs/styleguide.config.js",
+    "build:doc": "npm-run-all 'build:doc:*'",
+    "build:doc:config": "copyfiles -u 1 docs/*.md docs/_config.yml build",
+    "build:doc:react": "styleguidist build --config docs/styleguide.config.js",
+    "deploy:doc": "git-directory-deploy --directory build/ --branch gh-pages",
+    "prebuild:css:app": "mkdir -p build/styleguide",
+    "build:css:app":
+      "stylus --include stylus -o build/styleguide/app.css stylus/cozy-ui/index.styl",
+    "clean:doc:kss": "rm -rf build/styleguide",
+    "prebuild:doc:kss": "run-s clean:doc:kss build:css:app",
+    "build:doc:kss":
+      "kss --destination build/styleguide --title 'Cozy-UI Styleguide' --source stylus --builder node_modules/michelangelo/kss_styleguide/custom-template --homepage styleguide.md --css app.css"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
-    "css-loader": "^0.26.1",
+    "copyfiles": "^1.2.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "git-directory-deploy": "^1.5.1",
+    "kss": "^3.0.0-beta.18",
+    "kss-webpack-plugin": "^1.2.0",
+    "michelangelo": "https://github.com/cozy/michelangelo.git",
+    "node-polyglot": "^2.2.2",
     "npm-run-all": "^4.0.1",
-    "postcss-loader": "^1.2.2",
-    "preact": "^7.1.0",
+    "postcss-loader": "^2.0.6",
+    "preact": "^8.1.0",
     "preact-compat": "^3.13.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-redux": "^5.0.3",
+    "react-styleguidist": "^6.0.24",
     "redux": "^3.6.0",
-    "standard": "^8.6.0",
-    "style-loader": "^0.13.1",
+    "standard": "^10.0.2",
+    "style-loader": "^0.18.2",
     "stylint": "^1.5.9",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^2.4.0",
-    "svg-sprite-loader": "^0.2.0",
-    "webpack": "^2.2.1"
+    "stylus-loader": "^3.0.1",
+    "svg-sprite-loader": "^3.2.5",
+    "webpack": "^3.5.6"
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "date-fns": "^1.28.5",
     "md5": "^2.2.0",
-    "normalize.css": "5.0.0"
+    "normalize.css": "^7.0.0",
+    "stylus": "^0.54.5"
+  },
+  "peerDependencies": {
+    "piwik-react-router": "^0.8.2"
   }
 }
